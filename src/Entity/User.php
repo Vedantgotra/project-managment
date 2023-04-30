@@ -137,10 +137,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->project;
     }
 
-    public function setProject(Project $project): self
+    public function setProject(?Project $project): self
     {
+        // unset the owning side of the relation if necessary
+        if ($project === null && $this->project !== null) {
+            $this->project->setUser(null);
+        }
+
         // set the owning side of the relation if necessary
-        if ($project->getUser() !== $this) {
+        if ($project !== null && $project->getUser() !== $this) {
             $project->setUser($this);
         }
 
@@ -148,4 +153,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
 }

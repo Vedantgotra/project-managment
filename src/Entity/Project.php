@@ -16,10 +16,6 @@ class Project
     #[ORM\Column(length: 255)]
     private ?string $Name = null;
 
-    #[ORM\OneToOne(inversedBy: 'project', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $User = null;
-
     #[ORM\Column(length: 255)]
     private ?string $Description = null;
 
@@ -28,6 +24,9 @@ class Project
 
     #[ORM\ManyToOne(inversedBy: 'projects')]
     private ?Teacher $Teacher = null;
+
+    #[ORM\OneToOne(inversedBy: 'project', cascade: ['persist', 'remove'])]
+    private ?User $User = null;
 
     public function getId(): ?int
     {
@@ -46,17 +45,6 @@ class Project
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->User;
-    }
-
-    public function setUser(User $User): self
-    {
-        $this->User = $User;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {
@@ -90,6 +78,18 @@ class Project
     public function setTeacher(?Teacher $Teacher): self
     {
         $this->Teacher = $Teacher;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->User;
+    }
+
+    public function setUser(?User $User): self
+    {
+        $this->User = $User;
 
         return $this;
     }
