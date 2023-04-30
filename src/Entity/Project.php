@@ -20,6 +20,15 @@ class Project
     #[ORM\JoinColumn(nullable: false)]
     private ?User $User = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Description = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Technology = null;
+
+    #[ORM\ManyToOne(inversedBy: 'projects')]
+    private ?Teacher $Teacher = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -45,6 +54,42 @@ class Project
     public function setUser(User $User): self
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(string $Description): self
+    {
+        $this->Description = $Description;
+
+        return $this;
+    }
+
+    public function getTechnology(): ?string
+    {
+        return $this->Technology;
+    }
+
+    public function setTechnology(string $Technology): self
+    {
+        $this->Technology = $Technology;
+
+        return $this;
+    }
+
+    public function getTeacher(): ?Teacher
+    {
+        return $this->Teacher;
+    }
+
+    public function setTeacher(?Teacher $Teacher): self
+    {
+        $this->Teacher = $Teacher;
 
         return $this;
     }

@@ -18,15 +18,24 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        Teacher:
+            pattern: ^/teacher
+            lazy: true
+            provider: app_teacher_provider
+            custom_authenticator:
+                - App\Security\TeacherLoginAuthenticator
+            logout:
+                path: app_teacher_logout
         main:
+            pattern: ^/
             lazy: true
             provider: app_user_provider
-            custom_authenticator: App\Security\LoginUserAuthenticator
+            custom_authenticator:
+                - App\Security\LoginUserAuthenticator
             logout:
                 path: app_logout
                 # where to redirect after logout
                 # target: app_any_route
-
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
