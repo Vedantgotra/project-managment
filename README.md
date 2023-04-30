@@ -1,2 +1,2 @@
 # project-managment
-this is a college project
+this is a college project from vedant
