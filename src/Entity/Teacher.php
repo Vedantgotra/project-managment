@@ -34,6 +34,9 @@ class Teacher implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'Teacher', targetEntity: Project::class)]
     private Collection $projects;
 
+    #[ORM\Column(length: 255)]
+    private ?string $Name = null;
+
     public function __construct()
     {
         $this->projects = new ArrayCollection();
@@ -135,6 +138,18 @@ class Teacher implements UserInterface, PasswordAuthenticatedUserInterface
                 $project->setTeacher(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->Name;
+    }
+
+    public function setName(string $Name): self
+    {
+        $this->Name = $Name;
 
         return $this;
     }

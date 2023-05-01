@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProjectSelectController!{% endblock %}
+
+{% block body %}
+{{form_start(form)}}
+
+{{form_row(form.Teacher)}}
+  
+ <button class="btn btn-primary" type="submit"> Select</button>
+{{form_end(form)}}
+{% endblock %}
