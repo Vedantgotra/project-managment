@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello{% endblock %}
+{% block navone %}<a class="nav-link" href="{{path('app_teacher')}}">Back</a>{% endblock %}
+{% block navtwo %}<a class="nav-link" href="{{path('app_teacher_logout')}}">Logout</a>{% endblock %}
+{% block teacherpanel %}{% endblock %}
+{% block body %}
+{# card #}
+<h3>Enter the Project Details</h3>
+{{form_start(form)}}
+{{form_widget(form)}}
+<button type="submit" class="btn btn-primary">Submit</button>
+{{form_end(form)}}
+
+{% endblock %}

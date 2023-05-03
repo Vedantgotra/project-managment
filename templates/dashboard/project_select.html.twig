@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello ProjectSelectController!{% endblock %}
-
+{% block navone %}<a class="nav-link" href="{{path('app_dashboard')}}">Back</a>{% endblock %}
+{% block navtwo %}<a class="nav-link" href="{{path('app_logout')}}">Logout</a>{% endblock %}
+{% block teacherpanel %}{% endblock %}
 {% block body %}
 {{form_start(form)}}
 
