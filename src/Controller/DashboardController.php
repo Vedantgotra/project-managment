@@ -56,10 +56,19 @@ class DashboardController extends AbstractController
         if($request->query->get('id') !== null){
             $id = $request->query->get('id');
             $project =  $entityManager->getRepository(Project::class)->findOneBy(['id' => $id ]);
-            $project->setUser($this->getUser());
-            $entityManager->persist($project);
-            $entityManager->flush();
-            return $this->redirectToRoute("app_dashboard");
+            if($project->getUser()){
+                $this->addFlash("danger", "this project is already Registered With Some User");
+            }
+            else{
+
+                $project->setUser($this->getUser());
+                $project->setApproved(false);
+                $entityManager->persist($project);
+                $entityManager->flush();
+                
+                $this->addFlash("success", "Your Project is sent TO be Approved");
+                return $this->redirectToRoute("app_dashboard");
+            }
 
         }
         return $this->render('dashboard/project_final.html.twig', [

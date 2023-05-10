@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello
+{% endblock %}
+{% block navone %}
+	<a class="nav-link" href="{{path('app_teacher_logout')}}">Logout</a>
+{% endblock %}
+{% block navtwo %}{% endblock %}
+{% block teacherpanel %}{% endblock %}
+{% block body %}
+	<div class="m-4">
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="nav-item">
+				<a href={{path('app_teacher')}} class="nav-link">Home</a>
+			</li>
+			<li class="nav-item">
+				<a href={{path('app_teacher_project_all')}} class="nav-link">My Projects</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link active">Approval List</a>
+			</li>
+		</ul>
+		<div class="mt-5">
+			<div class="container">
+				<h2>Select Here To Approve Or Decline The Projects :</h2>
+				<div class="row justify-content-center">
+					<div class="col-12 mt-2">
+						<div class="card border-0 shadow rounded-3 overflow-hidden">
+							<div class="card-body p-0">
+								<div class="table-responsive">
+									<form method='post'>
+										<table class="table table-borderless mb-0">
+											<thead>
+												<tr>
+													<th scope="col">
+														
+													</th>
+													<th scope="col">Project</th>
+													<th scope="col">Project Description</th>
+													<th scope="col">Assigned To</th>
+													<th scope="col">Project Status</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for project in projects %}
+													<tr>
+														<td scope="row">
+															<div class="form-check">
+																<input class="form-check-input" type="checkbox" value={{project.Id}} name="id[]"/>
+															</div>
+														</td>
+														<td>{{project.Name}}</td>
+														<td>{{project.Description}}</td>
+														{% if project.User.Name is defined %}
+															<td>{{project.User.Name}}</td>
+														{% else %}
+															<td>Not Assisgned</td>
+														{% endif %}
+														{% if (project.Approved) %}
+															<td>Approved</td>
+														{% else %}
+															<td>Not Approved</td>
+														{% endif %}
+
+													</tr>
+												{% endfor %}
+
+											</tbody>
+										</table>
+                                        <br>
+                                        <div class="ms-3 mb-2">
+                                          <button type="submit" name="working" value="submit" class="btn btn-primary ">Submit</button>
+                                          <button type="Decline" name="working" value="decline" class="btn btn-danger">Decline</button>
+									</div>
+                                    </form>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

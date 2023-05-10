@@ -9,43 +9,50 @@
 {% block navtwo %}{% endblock %}
 {% block teacherpanel %}{% endblock %}
 {% block body %}
-	{# card #}
-	<div class="container">
-		<div class="card">
-			<div class="row mt-5">
-				<div class="col-sm-3">
-					<img class="card-img-top p-2 mt-3 " src="{{asset('uploads/profile.jpg')}}" alt="Card image" style="width: 400px;">
-					<div class="card-body">
-						<h4 class="card-title">{{app.user.name}}</h4>
-						<p class="card-text">Teacher</p>
-						<a href="{{path('app_teacher_project_add')}}" class="btn btn-primary">Create A Project</a>
+	<div class="m-4">
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="nav-item">
+				<a href="#" class="nav-link active">Home</a>
+			</li>
+			<li class="nav-item">
+				<a href={{path('app_teacher_project_all')}} class="nav-link">My Projects</a>
+			</li>
+			<li class="nav-item">
+				<a href={{path('app_teacher_project_approve')}} class="nav-link">Approval List</a>
+			</li>
+		</ul>
+		{# card #}
+		<section class="py-5">
+			<div class="container px-5">
+				<h1 class="fw-bolder fs-5 mb-4">Profile</h1>
+				<div class="card border-0 shadow rounded-3 overflow-hidden">
+					<div class="card-body p-0">
+						<div class="row gx-0">
+							<div class="col-lg-6 col-xl-5 py-lg-5">
+								<div class="p-4 p-md-5">
+									<div class="badge bg-primary bg-gradient rounded-pill mb-2">A+</div>
+									<div class="h2 fw-bolder">{{app.user.Name}}</div>
+									<p></p>
+									<a class="stretched-link text-decoration-none" href="#!">
+										View Profile
+										<i class="bi bi-arrow-right"></i>
+									</a>
+									<a class="stretched-link text-decoration-none" href="{{path('app_teacher_project_add')}}"><br><br>
+										Create A Project
+										<i class="bi bi-arrow-right"></i>
+									</a>
+								</div>
+							</div>
+							<div class="col-lg-6 col-xl-7 d-flex justify-content-end">
+								<div class="bg-featured-blog"><img src={{asset('uploads/profile.jpg')}} alt="Paris">
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="col-sm-6 my-auto mx-auto">
-        <h1> projects</h1>
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>Name</th>
-								<th>Assisgned To</th>
-							</tr>
-						</thead>
-						<tbody>
-								{% for project in projects %}
-							<tr>
-                <td>{{project.Name}}</td>
-                {% if project.User.Name is defined %}
-								<td>{{project.User.Name}}</td>
-                {% else %}
-                  <td>Not Assisgned</td>
-                {% endif %}
-                
-							</tr>
-              {% endfor %}
-						</tbody>
-					</table>
-				</div>
 			</div>
-		</div>
+		</section>
+
+
 	</div>
-</div>{% endblock %}
+{% endblock %}

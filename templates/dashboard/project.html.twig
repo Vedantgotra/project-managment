@@ -1,19 +1,131 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProjectRegistrationController!{% endblock %}
-{% block navone %}<a class="nav-link" href="{{path('app_dashboard')}}">Back</a>{% endblock %}
-{% block navtwo %}<a class="nav-link" href="{{path('app_logout')}}">Logout</a>{% endblock %}
+{% block title %}Hello ProjectRegistrationController!
+{% endblock %}
+{% block navone %}
+	<a class="nav-link" href="{{path('app_dashboard')}}">Back</a>
+{% endblock %}
+{% block navtwo %}
+	<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
+{% endblock %}
 
 {% block body %}
-{# jumbotron #}
-<div class="mt-4 p-2 bg-grey text-secondary text-center rounded">
-  <h1>Register A Project</h1>
-</div>
+	<section class="bg-light py-5">
+		<div class="container px-5 my-5">
+			<div class="text-center mb-5">
+				<h1 class="fw-bolder">Choose Project Way</h1>
+				<p class="lead fw-normal text-muted mb-0">Select A Way Of Choosing As Below</p>
+			</div>
+			<div
+				class="row gx-5 justify-content-center">
+				<!-- Pricing card free-->
+				<div class="col-lg-6 col-xl-4">
+					<div class="card mb-5 mb-xl-0">
+						<div class="card-body p-5">
+							<div class="mb-3">
+								<span class="h1 fw-bold">Teacher</span>
+							</div>
+							<ul class="list-unstyled mb-4">
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									<strong>Select On The Basis Of Teacher</strong>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									Yes You Can Select on the basis of Teacher
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									Basically The Teacher Has Uploaded Some Projects And You Can Assign
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									By Choosing First You Will Select The Project And Then The Teacher Will Approve.
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									Then It Will Assigned To You..
+								</li>
 
-<h1>On the Basis Of Teacher</h1>
-<a href={{path('app_project_select',{slug: 'teacher'})}} class="btn btn-primary" role="button">Select</a>
-<h1>On the Basis Of Language</h1>
-<a href={{path('app_project_select',{slug: 'technology'})}} class="btn btn-primary" role="button">Select</a>
-<h1>On the Basis Of Self</h1>
-<a href={{path('app_project_select',{slug: 'self'})}} class="btn btn-primary" role="button">Select</a>
+							</ul>
+							<div class="d-grid">
+								<a class="btn btn-outline-primary" href={{path('app_project_select',{slug: 'self'} )}}>Choose plan</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-xl-4">
+					<div class="card mb-5 mb-xl-0">
+						<div class="card-body p-5">
+							<div class="mb-3">
+								<span class="h1 fw-bold">Technology</span>
+							</div>
+							<ul class="list-unstyled mb-4">
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									<strong>Select On The Basis Of Teacher</strong>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									Yes You Can Select on the basis of Teacher
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									Basically The Teacher Has Uploaded Some Projects And You Can Assign
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									By Choosing First You Will Select The Project And Then The Teacher Will Approve.
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									Then It Will Assigned To You..
+								</li>
+
+							</ul>
+							<div class="d-grid">
+								<a class="btn btn-outline-primary" href={{path('app_project_select',{slug: 'self'} )}}>Choose plan</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-xl-4">
+					<div class="card mb-5 mb-xl-0">
+						<div class="card-body p-5">
+							<div class="mb-3">
+								<span class="h1 fw-bold">Self</span>
+							</div>
+							<ul class="list-unstyled mb-4">
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									<strong>Select On The Basis Of Teacher</strong>
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									Yes You Can Select on the basis of Teacher
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									Basically The Teacher Has Uploaded Some Projects And You Can Assign
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									By Choosing First You Will Select The Project And Then The Teacher Will Approve.
+								</li>
+								<li class="mb-2">
+									<i class="bi bi-check text-primary"></i>
+									Then It Will Assigned To You..
+								</li>
+
+							</ul>
+							<div class="d-grid">
+								<a class="btn btn-outline-primary" href={{path('app_project_select',{slug: 'self'} )}}>Choose plan</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 {% endblock %}

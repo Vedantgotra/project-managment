@@ -28,6 +28,9 @@ class Project
     #[ORM\OneToOne(inversedBy: 'project', cascade: ['persist', 'remove'])]
     private ?User $User = null;
 
+    #[ORM\Column]
+    private ?bool $Approved = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class Project
     public function setUser(?User $User): self
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    public function isApproved(): ?bool
+    {
+        return $this->Approved;
+    }
+
+    public function setApproved(bool $Approved): self
+    {
+        $this->Approved = $Approved;
 
         return $this;
     }

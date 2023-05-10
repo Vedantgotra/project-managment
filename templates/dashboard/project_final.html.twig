@@ -1,20 +1,30 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProjectSelectController!{% endblock %}
-{% block navone %}<a class="nav-link" href="{{path('app_dashboard')}}">Back</a>{% endblock %}
-{% block navtwo %}<a class="nav-link" href="{{path('app_logout')}}">Logout</a>{% endblock %}
+{% block title %}Hello ProjectSelectController!
+{% endblock %}
+{% block navone %}
+	<a class="nav-link" href="{{path('app_dashboard')}}">Back</a>
+{% endblock %}
+{% block navtwo %}
+	<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
+{% endblock %}
 {% block teacherpanel %}{% endblock %}
 
 {% block body %}
-<form action="">
-{% for Project in projects %}
-    
-<div class="form-check">
-  <input type="radio" class="form-check-input" id="radio1" name="id" value="{{Project.id}}" >{{Project.name}}
-  <label class="form-check-label" for="radio1"></label>
-</div>
-{% endfor %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<form action="">
+		{% for Project in projects %}
 
-<button type="submit" class="btn btn-primary">Submit</button>
-</form>
+			<div class="form-check">
+				<input type="radio" class="form-check-input" id="radio1" name="id" value="{{Project.id}}">{{Project.name}}
+				<label class="form-check-label" for="radio1"></label>
+			</div>
+		{% endfor %}
+
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
 {% endblock %}
