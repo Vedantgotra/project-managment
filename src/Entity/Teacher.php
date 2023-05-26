@@ -37,6 +37,9 @@ class Teacher implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $Name = null;
 
+    #[ORM\Column]
+    private ?int $Phone = null;
+
     public function __construct()
     {
         $this->projects = new ArrayCollection();
@@ -150,6 +153,18 @@ class Teacher implements UserInterface, PasswordAuthenticatedUserInterface
     public function setName(string $Name): self
     {
         $this->Name = $Name;
+
+        return $this;
+    }
+    
+    public function getPhone(): ?int
+    {
+        return $this->Phone;
+    }
+
+    public function setPhone(int $Phone): self
+    {
+        $this->Phone = $Phone;
 
         return $this;
     }

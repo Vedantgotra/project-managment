@@ -11,20 +11,31 @@
 {% block teacherpanel %}{% endblock %}
 
 {% block body %}
-	{% for message in app.flashes('success') %}
+	{% for message in app.flashes('danger') %}
 		<div class="alert alert-danger">
 			{{ message }}
 		</div>
 	{% endfor %}
-	<form action="">
-		{% for Project in projects %}
-
-			<div class="form-check">
-				<input type="radio" class="form-check-input" id="radio1" name="id" value="{{Project.id}}">{{Project.name}}
-				<label class="form-check-label" for="radio1"></label>
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-11 mx-auto">
+					<section class="edica-404">
+						<h1 class="page-title" data-aos="fade-up">Select Project</h1>
+						<div class="edica-404-subtitle" data-aos="fade-up" data-aos-delay="100">
+							<form action="">
+								{% for Project in projects %}
+									<div class="form-check">
+										<input type="radio" class="form-check-input" id="radio1" name="id" value="{{Project.id}}">{{Project.name}}
+										<label class="form-check-label" for="radio1"></label>
+									</div>
+								{% endfor %}
+							<button type="submit" class="btn btn-primary mt-3">Submit</button>
+							</form>
+						</form>
+					</div>
+				</section>
 			</div>
-		{% endfor %}
-
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
-{% endblock %}
+		</div>
+	</div>
+</main>{% endblock %}

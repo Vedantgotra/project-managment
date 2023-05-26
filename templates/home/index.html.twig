@@ -1,79 +1,135 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
-{% block home %}<li class="nav-item"><a class="nav-link" href="#">Home</a></li>{% endblock %}
-{% block navone %}<li class="nav-item"><a class="nav-link" href="{{path('app_register')}}">Register</a></li>{% endblock %}
-{% block navtwo %}<li class="nav-item"><a class="nav-link" href="{{path('app_login')}}">Login</a></li>{% endblock %}
-{% block navthree %}<li class="nav-item"><a class="nav-link" href="{{path('app_teacher_login')}}">Teacher</a></li>{% endblock %}
+{% block title %}Hello HomeController!
+{% endblock %}
+{% block home %}
+	<li class="nav-item active">
+		<a class="nav-link" href="#">Home
+			<span class="sr-only">(current)</span>
+		</a>
+	</li>
+{% endblock %}
+{% block navone %}
+	<li class="nav-item">
+		<a class="nav-link" href="{{path('app_login')}}">
+			<span class="fa fa-sign-in"></span>
+			Login</a>
+	</li>
+{% endblock %}
+{% block navtwo %}
+	<li class="nav-item">
+		<a class="nav-link" href="{{path('app_teacher_login')}}">Teacher</a>
+	</li>
+{% endblock %}
 {% block body %}
-<!-- Header-->
-            <header class="bg-dark py-5">
-                <div class="container px-5">
-                    <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="col-lg-8 col-xl-7 col-xxl-6">
-                            <div class="my-5 text-center text-xl-start">
-                                <h1 class="display-5 fw-bolder text-white mb-2">Project Managment System</h1>
-                                <p class="lead fw-normal text-white-50 mb-4">A Project Managment System That Automates the Project Allocation to Student!</p>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                    {# <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a> #}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="{{asset('uploads/projectmanagment.jpg')}}" alt="..." /></div>
-                    </div>
-                </div>
-            </header>
-            <!-- Features section-->
-            <section class="py-5" id="features">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5">
-                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">A better way to start building Projects.</h2></div>
-                        <div class="col-lg-8">
-                            <div class="row gx-5 row-cols-1 row-cols-md-2">
-                                <div class="col mb-5 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                                    <h2 class="h5">So Many Choices</h2>
-                                    <p class="mb-0">A Project Can be Selected By Many Features Such as Teacher , TEchnology, Self</p>
-                                </div>
-                                <div class="col mb-5 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                                    <h2 class="h5">Loading--</h2>
-                                    <p class="mb-0">Loading...</p>
-                                </div>
-                                <div class="col mb-5 mb-md-0 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                                    <h2 class="h5">Loading--</h2>
-                                    <p class="mb-0">Loading...</p>
-                                </div>
-                                <div class="col h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                                    <h2 class="h5">Loading--</h2>
-                                    <p class="mb-0">Loading...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Testimonial section-->
-            <div class="py-5 bg-light">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-10 col-xl-7">
-                            <div class="text-center">
-                                <div class="fs-4 mb-4 fst-italic">"English"</div>
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <img class="rounded-circle me-3" src="{{asset('uploads/logo.jpeg')}}" alt="..." width="30" />
-                                    <div class="fw-bold">
-                                        Vedant Gotra
-                                        <span class="fw-bold text-primary mx-1">/</span>
-                                        Software Engineer, Webkul
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+	<header class="edica-header edica-landing-header">
+		<div class="container">
+			<div class="edica-landing-header-content">
+				<div id="edicaLandingHeaderCarousel" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#edicaLandingHeaderCarousel" data-slide-to="0" class="active">.01</li>
+						<li data-target="#edicaLandingHeaderCarousel" data-slide-to="1">.02</li>
+						<li data-target="#edicaLandingHeaderCarousel" data-slide-to="2">.03</li>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active">
+							<div class="row">
+								<div class="col-md-6 carousel-content-wrapper">
+									<h1>Project Managment System</h1>
+									<p>A Project Managment System That Automates the Project Allocation to Student.</p>
+									<div class="carousel-content-btns">
+										<a href="#!" class="btn btn-success">
+											<i class="fas fa-info mr-2"></i>
+											Get Started</a>
+										<a href="{{path('app_register')}}" class="btn btn-secondary">
+											<i class="fab fa-android mr-2"></i>
+											Register Now.</a>
+									</div>
+								</div>
+								<div class="col-md-6 carousel-img-wrapper">
+									<img src="{{asset('/images/pic1.jpg')}}" alt="carousel-img" class="img-fluid" width="350px">
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-6 carousel-content-wrapper">
+									<h1>Get Started Power social proof for your brands.</h1>
+									<p>He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement.</p>
+									<div class="carousel-content-btns">
+										<a href="#!" class="btn btn-success">
+											<i class="fab fa-apple mr-2"></i>
+											App Store</a>
+										<a href="#!" class="btn btn-secondary">
+											<i class="fab fa-android mr-2"></i>
+											Google Play</a>
+									</div>
+								</div>
+								<div class="col-md-6 carousel-img-wrapper">
+									<img src="{{asset('/images/slider2.jpg')}}" alt="carousel-img" class="img-fluid" width="350px">
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<div class="row">
+								<div class="col-md-6 carousel-content-wrapper">
+									<h1>Get Started Power social proof for your brands.</h1>
+									<p>He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement.</p>
+									<div class="carousel-content-btns">
+										<a href="#!" class="btn btn-success">
+											<i class="fab fa-apple mr-2"></i>
+											App Store</a>
+										<a href="#!" class="btn btn-secondary">
+											<i class="fab fa-android mr-2"></i>
+											Google Play</a>
+									</div>
+								</div>
+								<div class="col-md-6 carousel-img-wrapper">
+									<img src="{{asset('/images/slider3.jpg')}}" alt="carousel-img" class="img-fluid" width="350px">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section class="edica-landing-section edica-landing-about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6" data-aos="fade-up-right">
+						<h4 class="edica-landing-section-subtitle-alt">ABOUT US</h4>
+						<h2 class="edica-landing-section-title">1000+ customer using Our application.</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipng elit, sed do eiusmod tempor incididunt ut labore aliqua. Ut enim que minim veniam, quis nostrud exercitation.</p>
+						<ul class="landing-about-list">
+							<li>Powerful and flexible theme</li>
+							<li>Simple, transparent pricing</li>
+							<li>Build tools and full documention</li>
+						</ul>
+					</div>
+					<div class="col-md-6" data-aos="fade-up-left">
+						<img src="{{asset('images/phone-copy.png')}}" width="468px" alt="about" class="img-fluid">
+					</div>
+				</div>
+			</div>
+		</section>
+		
+	</main>
+	<section class="edica-footer-banner-section">
+		<div class="container">
+			<div class="footer-banner" data-aos="fade-up">
+				<h1 class="banner-title">Use it now.</h1>
+				<div class="banner-btns-wrapper">
+					<button class="btn btn-success">
+						Get Started</button>
+					<button class="btn btn-success">
+						Register Now.</button>
+				</div>
+				<p class="banner-text">Get Register To Use Project Managment System
+					<br>
+					product or service.</p>
+			</div>
+		</div>
+	</section>
 {% endblock %}

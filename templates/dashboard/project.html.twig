@@ -10,122 +10,122 @@
 {% endblock %}
 
 {% block body %}
-	<section class="bg-light py-5">
-		<div class="container px-5 my-5">
-			<div class="text-center mb-5">
-				<h1 class="fw-bolder">Choose Project Way</h1>
-				<p class="lead fw-normal text-muted mb-0">Select A Way Of Choosing As Below</p>
-			</div>
-			<div
-				class="row gx-5 justify-content-center">
-				<!-- Pricing card free-->
-				<div class="col-lg-6 col-xl-4">
-					<div class="card mb-5 mb-xl-0">
-						<div class="card-body p-5">
-							<div class="mb-3">
-								<span class="h1 fw-bold">Teacher</span>
-							</div>
-							<ul class="list-unstyled mb-4">
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									<strong>Select On The Basis Of Teacher</strong>
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									Yes You Can Select on the basis of Teacher
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									Basically The Teacher Has Uploaded Some Projects And You Can Assign
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									By Choosing First You Will Select The Project And Then The Teacher Will Approve.
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									Then It Will Assigned To You..
-								</li>
 
-							</ul>
-							<div class="d-grid">
-								<a class="btn btn-outline-primary" href={{path('app_project_select',{slug: 'self'} )}}>Choose plan</a>
-							</div>
-						</div>
+	<main class="blog">
+		<div class="container">
+			<h1 class="edica-page-title" data-aos="fade-up">Choose Project Way</h1>
+			<section class="featured-posts-section">
+				<div class="row">
+					<div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
+						<div class="card mb-5 mb-xl-0">
+									<div class="card-body p-5">
+										<div class="mb-3">
+											<span class="h1 fw-bold">Teacher</span>
+										</div>
+										<ul class="list-unstyled mb-4">
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												<strong>Select On The Basis Of Teacher</strong>
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												Yes You Can Select on the basis of Teacher
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												Basically The Teacher Has Uploaded Some Projects And You Can Assign
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												By Choosing First You Will Select The Project And Then The Teacher Will Approve.
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												Then It Will Assigned To You..
+											</li>
+	
+										</ul>
+										<div class="d-grid">
+											<a class="btn btn-outline-primary" href={{path('app_project_select',{slug: 'teacher'} )}}>Choose plan</a>
+										</div>
+									</div>
+								</div>
+					</div>
+					<div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
+						<div class="card mb-5 mb-xl-0">
+									<div class="card-body p-5">
+										<div class="mb-3">
+											<span class="h1 fw-bold">Technology</span>
+										</div>
+										<ul class="list-unstyled mb-4">
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												<strong>Select On The Basis Of Teacher</strong>
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												Yes You Can Select on the basis of Teacher
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												Basically The Teacher Has Uploaded Some Projects And You Can Assign
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												By Choosing First You Will Select The Project And Then The Teacher Will Approve.
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												Then It Will Assigned To You..
+											</li>
+	
+										</ul>
+										<div class="d-grid">
+											<a class="btn btn-outline-primary" href={{path('app_project_select',{slug: 'technology'} )}}>Choose plan</a>
+										</div>
+									</div>
+								</div>
+					</div>
+					<div class="col-md-4 fetured-post blog-post" data-aos="fade-left">
+						<div class="card mb-5 mb-xl-0">
+									<div class="card-body p-5">
+										<div class="mb-3">
+											<span class="h1 fw-bold">Self</span>
+										</div>
+										<ul class="list-unstyled mb-4">
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												<strong>Select On The Basis Of Teacher</strong>
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												Yes You Can Select on the basis of Teacher
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												Basically The Teacher Has Uploaded Some Projects And You Can Assign
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												By Choosing First You Will Select The Project And Then The Teacher Will Approve.
+											</li>
+											<li class="mb-2">
+												<i class="bi bi-check text-primary"></i>
+												Then It Will Assigned To You..
+											</li>
+	
+										</ul>
+										<div class="d-grid">
+											<a class="btn btn-outline-primary" href={{path('app_project_select',{slug: 'self'} )}}>Choose plan</a>
+										</div>
+									</div>
+								</div>
 					</div>
 				</div>
-				<div class="col-lg-6 col-xl-4">
-					<div class="card mb-5 mb-xl-0">
-						<div class="card-body p-5">
-							<div class="mb-3">
-								<span class="h1 fw-bold">Technology</span>
-							</div>
-							<ul class="list-unstyled mb-4">
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									<strong>Select On The Basis Of Teacher</strong>
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									Yes You Can Select on the basis of Teacher
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									Basically The Teacher Has Uploaded Some Projects And You Can Assign
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									By Choosing First You Will Select The Project And Then The Teacher Will Approve.
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									Then It Will Assigned To You..
-								</li>
+			</section>
 
-							</ul>
-							<div class="d-grid">
-								<a class="btn btn-outline-primary" href={{path('app_project_select',{slug: 'self'} )}}>Choose plan</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 col-xl-4">
-					<div class="card mb-5 mb-xl-0">
-						<div class="card-body p-5">
-							<div class="mb-3">
-								<span class="h1 fw-bold">Self</span>
-							</div>
-							<ul class="list-unstyled mb-4">
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									<strong>Select On The Basis Of Teacher</strong>
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									Yes You Can Select on the basis of Teacher
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									Basically The Teacher Has Uploaded Some Projects And You Can Assign
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									By Choosing First You Will Select The Project And Then The Teacher Will Approve.
-								</li>
-								<li class="mb-2">
-									<i class="bi bi-check text-primary"></i>
-									Then It Will Assigned To You..
-								</li>
-
-							</ul>
-							<div class="d-grid">
-								<a class="btn btn-outline-primary" href={{path('app_project_select',{slug: 'self'} )}}>Choose plan</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
-	</section>
 
+	</main>
+	
 {% endblock %}

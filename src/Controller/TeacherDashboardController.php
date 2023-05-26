@@ -31,6 +31,7 @@ class TeacherDashboardController extends AbstractController
             $project->setApproved(false);
             $entityManager->persist($project);
             $entityManager->flush();
+            $this->addFlash("success", "Project Is Created");
             return $this->redirectToRoute('app_teacher');
         }
         return $this->render('teacher_dashboard/add.html.twig', [
@@ -53,6 +54,12 @@ class TeacherDashboardController extends AbstractController
                     $entityManager->flush();
                 }
             } else if ($action == 'decline') {
+                foreach ($ids as $id) {
+                    $project = $entityManager->getRepository(Project::class)->find($id);
+                    $project->setUser(null);
+                    $entityManager->persist($project);
+                    $entityManager->flush();
+                }   
             }
         }
         //    dd($request->request->all());        }

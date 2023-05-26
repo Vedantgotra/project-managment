@@ -1,14 +1,91 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProjectSelectController!{% endblock %}
-{% block navone %}<a class="nav-link" href="{{path('app_dashboard')}}">Back</a>{% endblock %}
-{% block navtwo %}<a class="nav-link" href="{{path('app_logout')}}">Logout</a>{% endblock %}
+{% block title %}Hello ProjectSelectController!
+{% endblock %}
+{% block navone %}
+	<a class="nav-link" href="{{path('app_dashboard')}}">Back</a>
+{% endblock %}
+{% block navtwo %}
+	<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
+{% endblock %}
 {% block teacherpanel %}{% endblock %}
 {% block body %}
-{{form_start(form)}}
+{% for message in app.flashes('danger') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-11 mx-auto">
+					<section class="edica-404">
+						<h1 class="page-title" data-aos="fade-up">Select
+							{{slug}}</h1>
+						<div class="edica-404-subtitle" data-aos="fade-up" data-aos-delay="100">'
+							{% if slug == "teacher" %}
+								<form action="" method="post">
+									{% for teacher in item %}
+										<div class="form-check">
+											<input type="radio" class="form-check-input" id="radio{{teacher.id}}" name="id" value="{{teacher.id}}" checked>
+											<label class="form-check-label" for="radio{{teacher.id}}">{{teacher.name}}</label>
+										</div>
+									{% endfor %}
+									<button type="submit" class="btn btn-primary mt-3">Submit</button>
+								</form>
+							{% elseif slug == "technology" %}
+								<form action="" method="post">
+									{% for technology in item %}
+										<div class="form-check">
+											<input type="radio" class="form-check-input" id="radio{{technology}}" name="technology" value="{{technology}}" checked>
+											<label class="form-check-label" for="radio{{technology}}">{{technology}}</label>
+										</div>
+									{% endfor %}
+									<button type="submit" class="btn btn-primary mt-3">Submit</button>
+								</form>
+							{% elseif slug == "self" %}
+								<section class="edica-contact py-5 mb-5">
+									<div class="row">
+										<div class="col-md-12 contact-form-wrapper">
+											<h5 data-aos="fade-up">Details form</h5>
+											{{form_start(item)}}
 
-{{form_row(form.Teacher)}}
-  
- <button class="btn btn-primary" type="submit"> Select</button>
-{{form_end(form)}}
+											<div class="row">
+												<div
+													class="form-group col-md-12" data-aos="fade-up">
+													{# <label for="name">NAME</label>
+													                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your full name"> #}
+													{{ form_row(item.Name) }}
+												</div>
+											</div>
+											<div class="row">
+												<div
+													class="form-group col-md-12" data-aos="fade-up" data-aos-delay="100">
+													{# <label for="email">EMAIL</label>
+													                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email address"> #}
+													{{ form_row(item.Technology) }}
+												</div>
+											</div>
+											<div class="row">
+												<div
+													class="form-group col-12" data-aos="fade-up" data-aos-delay="200">
+													{# <label for="message">MESSAGE</label>
+													                                        <textarea name="message" id="message" rows="9" class="form-control">Textarea field</textarea> #}
+													{{ form_row(item.Description) }}
+												</div>
+											</div>
+											<button type="submit" class="btn btn-warning btn-lg" data-aos="fade-up" data-aos-delay="300">Submit</button>
+											{{form_end(item)}}
+
+										</div>
+									</div>
+								</section>
+							{% endif %}
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</main>
+
 {% endblock %}

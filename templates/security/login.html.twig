@@ -1,80 +1,63 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
-{% block navone %}<a class="nav-link" href="{{path('app_home')}}">Home</a>{% endblock %}
-{% block navtwo %}<a class="nav-link" href="{{path('app_register')}}">Register</a>{% endblock %}
-{% block teacherpanel %}{% endblock %}
+{% block title %}Log in!
+{% endblock %}
+{% block navone %}
+	<li class="nav-item">
+		<a class="nav-link" href="{{path('app_home')}}">Home</a>
+	</li>
+{% endblock %}
+{% block navtwo %}
+	<li class="nav-item">
+		<a class="nav-link" href="{{path('app_register')}}">Register</a>
+	</li>
+{% endblock %}
 
 {% block body %}
-<section class="vh-100">
-  <div class="container-fluid h-custom">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          class="img-fluid" alt="Sample image">
-      </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-         <form method="post">
-         {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3">Sign in</p>
-            
-          </div>
 
-          <div class="divider d-flex align-items-center my-4">
-          </div>
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-11 mx-auto">
+					<h1 class="edica-page-title" data-aos="fade-up">Student Login</h1>
+					<section class="edica-contact py-5 mb-5">
+						<div class="row">
+							<div class="col-md-8 contact-form-wrapper">
+								<h5 data-aos="fade-up">Login form</h5>
+								<form method="post">
+									{% if error %}
+										<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+									{% endif %}
+									<div class="row">
+										<div class="form-group col-md-6" data-aos="fade-up" data-aos-delay="100">
+											<label for="inputEmail">EMAIL</label>
+											<input type="email" class="form-control" id="inputEmail" name="email" value="{{ last_username }}" placeholder="Email address">
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-md-6" data-aos="fade-up">
+											<label for="inputPassword">Password</label>
+											<input type="password" value="{{ last_username }}" class="form-control" id="inputPassword" name="password" placeholder="Your full name">
+										</div>
+									</div>
+									<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+									<button type="submit" class="btn btn-warning btn-lg" data-aos="fade-up" data-aos-delay="300">Login</button>
+								</form>
 
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-control-lg" autocomplete="email"  placeholder="Enter a valid email address" required autofocus>
-            <label class="form-label" for="inputEmail">Email address</label>
-          </div>
+							</div>
 
-          <!-- Password input -->
-          <div class="form-outline mb-3">
-            <input type="password" name="password" id="inputPassword" class="form-control form-control-lg" placeholder="Enter password" autocomplete="current-password" required>
-            <label for="inputPassword" class="form-label">Password</label>
-          </div>
-    
-         <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}">
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-                Remember me
-              </label>
-            </div>
-            <a href="#!" class="text-body">Forgot password?</a>
-          </div>
-
-          <div class="text-center text-lg-start mt-4 pt-2">
-            <button class="btn btn-lg btn-primary" type="submit"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="{{path('app_register')}}"
-                class="link-danger">Register</a></p>
-          </div>
-
-        </form>
-      </div>
-    </div>
-  </div>
-
- 
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
- 
-
-{% endblock %}
+							<div class="col-md-4 contact-sidebar" data-aos="fade-left">
+								<h5>Contact us</h5>
+								<p>Need assistance? Our customer service is here to assist you Monday through Friday from 9 am EST to 10 pm EST.</p>
+								<p>56 Livingston Street,<br>
+									Brooklyn, NY 11201</p>
+								<div class="embed-responsive embed-responsive-1by1 contact-map">
+									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12090.496282731767!2d-73.98517381282224!3d40.74829681924569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259041366262b%3A0xfdac298467953648!2sMurray%20Hill%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1588137209658!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	{% endblock %}

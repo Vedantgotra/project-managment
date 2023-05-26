@@ -21,68 +21,77 @@
 				<a href="#" class="nav-link active">Approval List</a>
 			</li>
 		</ul>
-		<div class="mt-5">
+		<main>
 			<div class="container">
-				<h2>Select Here To Approve Or Decline The Projects :</h2>
-				<div class="row justify-content-center">
-					<div class="col-12 mt-2">
-						<div class="card border-0 shadow rounded-3 overflow-hidden">
-							<div class="card-body p-0">
-								<div class="table-responsive">
-									<form method='post'>
-										<table class="table table-borderless mb-0">
-											<thead>
-												<tr>
-													<th scope="col">
-														
-													</th>
-													<th scope="col">Project</th>
-													<th scope="col">Project Description</th>
-													<th scope="col">Assigned To</th>
-													<th scope="col">Project Status</th>
-												</tr>
-											</thead>
-											<tbody>
-												{% for project in projects %}
-													<tr>
-														<td scope="row">
-															<div class="form-check">
-																<input class="form-check-input" type="checkbox" value={{project.Id}} name="id[]"/>
+				<div class="row">
+					<div class="col-lg-11 mx-auto">
+						<section class="edica-coming-soon py-5 mb-5">
+							<div class="row">
+								<div class="col-md-12">
+									<h2>Select Here To Approve Or Decline The Projects :</h2>
+									<div class="row justify-content-center">
+										<div class="col-12 mt-2">
+											<div class="card border-0 shadow rounded-3 overflow-hidden">
+												<div class="card-body p-0">
+													<div class="table-responsive">
+														<form method='post'>
+															<table class="table table-borderless mb-0">
+																<thead>
+																	<tr>
+																		<th scope="col"></th>
+																		<th scope="col">Project</th>
+																		<th scope="col">Project Description</th>
+																		<th scope="col">Assigned To</th>
+																		<th scope="col">Project Status</th>
+																	</tr>
+																</thead>
+																<tbody>
+																	{% for project in projects %}
+																		<tr>
+																			<td scope="row">
+																				<div class="form-check">
+																					<input class="form-check-input" type="checkbox" value={{project.Id}} name="id[]"/>
+																				</div>
+																			</td>
+																			<td>{{project.Name}}</td>
+																			<td>{{project.Description}}</td>
+																			{% if project.User.Name is defined %}
+																				<td>{{project.User.Name}}</td>
+																			{% else %}
+																				<td>Not Assisgned</td>
+																			{% endif %}
+																			{% if (project.Approved) %}
+																				<td>Approved</td>
+																			{% else %}
+																				<td>Not Approved</td>
+																			{% endif %}
+
+																		</tr>
+																	{% endfor %}
+
+																</tbody>
+															</table>
+															<br>
+															<div class="ms-3 mb-2">
+																<button type="submit" name="working" value="submit" class="btn btn-primary ">Submit</button>
+																<button type="Decline" name="working" value="decline" class="btn btn-danger">Decline</button>
 															</div>
-														</td>
-														<td>{{project.Name}}</td>
-														<td>{{project.Description}}</td>
-														{% if project.User.Name is defined %}
-															<td>{{project.User.Name}}</td>
-														{% else %}
-															<td>Not Assisgned</td>
-														{% endif %}
-														{% if (project.Approved) %}
-															<td>Approved</td>
-														{% else %}
-															<td>Not Approved</td>
-														{% endif %}
+														</form>
 
-													</tr>
-												{% endfor %}
-
-											</tbody>
-										</table>
-                                        <br>
-                                        <div class="ms-3 mb-2">
-                                          <button type="submit" name="working" value="submit" class="btn btn-primary ">Submit</button>
-                                          <button type="Decline" name="working" value="decline" class="btn btn-danger">Decline</button>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
-                                    </form>
-
 								</div>
 							</div>
-						</div>
+						</section>
+
 					</div>
 				</div>
-
 			</div>
-		</div>
+		</main>
+
 
 	</div>
 {% endblock %}

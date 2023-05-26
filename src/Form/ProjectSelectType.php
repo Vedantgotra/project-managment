@@ -16,6 +16,7 @@ class ProjectSelectType extends AbstractType
         $builder->add('Teacher', EntityType::class, [
             'class' => Teacher::class,
             'choice_label' => 'name',
+            'attr' => ['class' => 'form-check-input'],
             'expanded' => true,
             'multiple' => false,
         ]);

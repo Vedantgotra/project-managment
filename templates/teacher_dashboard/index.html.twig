@@ -21,37 +21,58 @@
 				<a href={{path('app_teacher_project_approve')}} class="nav-link">Approval List</a>
 			</li>
 		</ul>
+		{# flash messages #}
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
 		{# card #}
-		<section class="py-5">
-			<div class="container px-5">
-				<h1 class="fw-bolder fs-5 mb-4">Profile</h1>
-				<div class="card border-0 shadow rounded-3 overflow-hidden">
-					<div class="card-body p-0">
-						<div class="row gx-0">
-							<div class="col-lg-6 col-xl-5 py-lg-5">
-								<div class="p-4 p-md-5">
-									<div class="badge bg-primary bg-gradient rounded-pill mb-2">A+</div>
-									<div class="h2 fw-bolder">{{app.user.Name}}</div>
-									<p></p>
-									<a class="stretched-link text-decoration-none" href="#!">
-										View Profile
-										<i class="bi bi-arrow-right"></i>
-									</a>
-									<a class="stretched-link text-decoration-none" href="{{path('app_teacher_project_add')}}"><br><br>
-										Create A Project
-										<i class="bi bi-arrow-right"></i>
-									</a>
+		<main>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-11 mx-auto">
+						<section class="edica-coming-soon py-5 mb-5">
+							<div class="row">
+								<div class="col-md-12">
+									<section class="py-5">
+										<div class="container px-5">
+											<h1 class="fw-bolder fs-5 mb-4">Profile</h1>
+											<div class="card border-0 shadow rounded-3 overflow-hidden">
+												<div class="card-body p-0">
+													<div class="row gx-0">
+														<div class="col-lg-6 col-xl-5 py-lg-5">
+															<div class="p-4 p-md-5">
+																<div class="badge bg-primary bg-gradient rounded-pill mb-2">A+</div>
+																<div class="h2 fw-bolder">{{app.user.Name}}</div>
+																<p></p>
+																{# <a class="stretched-link text-decoration-none" href="#!">
+																																																	View Profile
+																																																	<i class="bi bi-arrow-right"></i>
+																																																</a> #}
+																<a class="stretched-link text-decoration-none" href="{{path('app_teacher_project_add')}}"><br><br>
+																	Create A Project
+																	<i class="bi bi-arrow-right"></i>
+																</a>
+															</div>
+														</div>
+														<div class="col-lg-6 col-xl-7 d-flex justify-content-end">
+															<div class="bg-featured-blog"><img src={{asset('uploads/profile.jpg')}} alt="Paris">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
 								</div>
 							</div>
-							<div class="col-lg-6 col-xl-7 d-flex justify-content-end">
-								<div class="bg-featured-blog"><img src={{asset('uploads/profile.jpg')}} alt="Paris">
-								</div>
-							</div>
-						</div>
+						</section>
+
 					</div>
 				</div>
 			</div>
-		</section>
+		</main>
 
 
 	</div>
